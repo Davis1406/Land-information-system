@@ -30,8 +30,6 @@ $detail = mysqli_real_escape_string($conn,$_POST['detail']);
    echo '<script type="text/javascript">window.location="land.php?act=2";</script>';
  }
 
-
-
 }
 
 
@@ -82,7 +80,7 @@ $errormsg = "<div class='alert alert-success'><strong>Success!</strong> location
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>LIMS</title>
+    <!-- <title>LIMS</title> -->
 
     <!-- BOOTSTRAP STYLES-->
     <link href="css/bootstrap.css" rel="stylesheet" />
@@ -154,7 +152,7 @@ echo $errormsg;
 							
 							
 							<div class="form-group">
-								<label class="col-sm-2 control-label" for="Password"> Category </label>
+								<label class="col-sm-2 control-label" for="Password" > Category </label>
 								<div class="col-sm-10">
                                     <select  class="form-control" id="address" name="address" >
 									<option value="">Select Type*</option>
@@ -178,13 +176,13 @@ echo $errormsg;
 									<option>8000-10000</option>	    
 								</div>
 							</div>
-				
+						
 						<div class="form-group">
 								<div class="col-sm-8 col-sm-offset-2">
 								<input type="hidden" name="id" value="<?php echo $id;?>">
 								<input type="hidden" name="action" value="<?php echo $action;?>">
 								
-									<button type="submit" name="save" class="btn btn-primary">Save </button>
+									<button type="submit" name="save" class="btn btn-primary mt-5 ">Save </button>
 								</div>
 							</div>
                         
@@ -265,9 +263,7 @@ echo $errormsg;
 			
 		} );
 	</script>
-
-
-			   
+   
 		<?php
 		}else{
 		?>
@@ -288,15 +284,15 @@ echo $errormsg;
                                     <thead>
                                         <tr>
                                             <th>#</th>
-                                            <th>Bank</th>
-                                            <th>Category</th>
+                                            <th>Location</th>
+                                            <th>Land Category</th>
                                             <th>Land Cost</th>
 											<th>Action</th>
                                         </tr>
                                     </thead>
                                     <tbody>
 									<?php
-									$sql = "select * from land where delete_status='0'";
+									$sql = "select * from land";
 									$q = $conn->query($sql);
 									$i=1;
 									while($r = $q->fetch_assoc())
